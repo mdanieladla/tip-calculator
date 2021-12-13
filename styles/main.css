@@ -1,0 +1,103 @@
+/*
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Strong cyan: hsl(172, 67%, 45%) -> tip selected; tip amount; tip total; btn reset
+
+### Neutral
+
+- Very dark cyan: hsl(183, 100%, 15%)
+- Dark grayish cyan: hsl(186, 14%, 43%)
+- Dark grayish cyan: hsl(184, 14%, 56%)
+- Light grayish cyan: hsl(185, 41%, 84%)
+- Light grayish cyan: hsl(189, 41%, 97%)
+- White: hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (form inputs): 24px
+
+### Font
+
+- Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
+- Weights: 400, 500, 700
+*/
+
+:root{
+    --strong-cyan: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan1: hsl(186, 14%, 43%);
+    --dark-grayish-cyan2: hsl(184, 14%, 56%);
+    --light-grayish-cyan1: hsl(185, 41%, 84%);
+    --light-grayish-cyan2: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+.body{
+    font-family: 'Space Mono', monospace;
+    background-color: var(--light-grayish-cyan1);
+}
+
+ .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.logo{
+    margin: 3rem;
+}
+
+.calculator{
+    border-radius: 20px;
+    background-color: var(--White);
+    padding: 20px;
+}
+
+.bill-span, .select-span, .number-people{
+    font-weight: 700;
+    color: var(--dark-grayish-cyan1);
+}
+
+/* .img{
+    padding-left: 2px;
+} */
+
+.test {
+    background-color: var(--light-grayish-cyan2);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.input{
+    border: none;
+    background-color: var(--light-grayish-cyan2);
+    width: 90%;
+    height: 40px;
+}
+
+.tip{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 30px;
+}
+
+
+
+/*preview part*/
+.preview{
+    padding: 10px;
+    background-color: var(--very-dark-cyan);
+}

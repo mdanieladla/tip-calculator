@@ -1,38 +1,3 @@
-/*
-## Layout
-
-The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px
-
-## Colors
-
-### Primary
-
-- Strong cyan: hsl(172, 67%, 45%) -> tip selected; tip amount; tip total; btn reset
-
-### Neutral
-
-- Very dark cyan: hsl(183, 100%, 15%)
-- Dark grayish cyan: hsl(186, 14%, 43%)
-- Dark grayish cyan: hsl(184, 14%, 56%)
-- Light grayish cyan: hsl(185, 41%, 84%)
-- Light grayish cyan: hsl(189, 41%, 97%)
-- White: hsl(0, 0%, 100%)
-
-## Typography
-
-### Body Copy
-
-- Font size (form inputs): 24px
-
-### Font
-
-- Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
-- Weights: 400, 500, 700
-*/
-
 :root{
     --strong-cyan: hsl(172, 67%, 45%);
     --very-dark-cyan: hsl(183, 100%, 15%);
@@ -47,7 +12,7 @@ The designs were created to the following widths:
     font-family: 'Space Mono', monospace;
     background-color: var(--light-grayish-cyan1);
 }
-
+/*HEADER*/
  .header{
     display: flex;
     justify-content: center;
@@ -57,7 +22,7 @@ The designs were created to the following widths:
 .logo{
     margin: 3rem;
 }
-
+/*MAIN*/
 .calculator{
     border-radius: 20px;
     background-color: var(--White);
@@ -69,11 +34,7 @@ The designs were created to the following widths:
     color: var(--dark-grayish-cyan1);
 }
 
-/* .img{
-    padding-left: 2px;
-} */
-
-.test {
+.img-input-div {
     background-color: var(--light-grayish-cyan2);
     margin-top: 10px;
     margin-bottom: 20px;
@@ -85,6 +46,7 @@ The designs were created to the following widths:
     background-color: var(--light-grayish-cyan2);
     width: 90%;
     height: 40px;
+    text-align: right;
 }
 
 .tip{
@@ -94,7 +56,7 @@ The designs were created to the following widths:
     margin-bottom: 30px;
 }
 
-.tip-btn{
+.tipBtn{
     margin-top: 10px;
     height: 50px;
     width: 150px;
@@ -108,11 +70,12 @@ The designs were created to the following widths:
 }
 
 .input-custom{
+    text-align: right;
     margin-top: 10px;
     height: 50px;
     width: 145px;
     background-color: var(--light-grayish-cyan2);
-    color: var(--White);
+    color: var(--very-dark-cyan);
     font-weight: 700;
     font-size: 20px;
     font-family: 'Space Mono', monospace;
@@ -137,7 +100,12 @@ The designs were created to the following widths:
     padding: 20px;
     background-color: var(--very-dark-cyan);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.tip-person, .total-person {
+    display: flex;
+    flex-direction: column;
 }
 
 .tip-amount, .total-bill{
@@ -154,23 +122,13 @@ The designs were created to the following widths:
     margin-bottom: 20px;
 }
 
-.dollar-input{
-    display: flex;
-    flex-direction: row;
-}
-
-.img-prevw{
+.tip-dollar{
+    font-size: 30px;
     color: var(--strong-cyan);
 }
 
-.input-preview{
-    background-color: var(--very-dark-cyan);
-    border: none;
-    width: 100px;
-}
-
-.total-bill{
-    grid-column-start: 1;
+.i-prevw{
+    color: var(--strong-cyan);
 }
 
 .reset-btn{
@@ -188,8 +146,53 @@ The designs were created to the following widths:
     color: var(--very-dark-cyan);
 }
 
-.preview ::placeholder{
-    color: var(--strong-cyan);
-    font-size: 20px;
-    font-weight: 700;
+.footer{
+    margin-top: 10px;
+}
+
+@media all and (min-width: 1024px){
+    .main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+
+    .calculator{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 700px;
+        height: 400px;
+    }
+
+    .img-input-div{
+        margin-right: 7px;
+    }
+
+    .tipBtn{
+        width: 95px;
+    }
+
+    .input-custom{
+        width: 90px;
+    }
+
+    .preview{
+        grid-template-rows: repeat(3, 1fr);
+        height: 335xpx;
+        width: 330px;
+        padding-top: 40px;
+    }
+
+    .tip{
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 20px;
+    }
+
+    .footer{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
 }

@@ -15,6 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Fuente Unicons -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <title>Splitter</title>
@@ -35,12 +40,12 @@
           </div>
           <span class="select-span">Select Tip % </span>
           <div class="tip">
-            <button>5%</button> 
-            <button>10%</button> 
-            <button>15%</button
-            ><button>25%</button> 
-            <button>50%</button> 
-            <input type="text" placeholder="Custom" class="input"></input>
+            <button class="tip-btn">5%</button> 
+            <button class="tip-btn">10%</button> 
+            <button class="tip-btn">15%</button> 
+            <button class="tip-btn">25%</button> 
+            <button class="tip-btn">50%</button> 
+            <input type="text" placeholder="Custom" class="input-custom"></input>
           </div>
           <span class="number-people">Number of People</span>
           <div class="test">
@@ -50,7 +55,21 @@
                 </div>
           </div>
         </div>
-        <div class="preview">Tip amount (numero) total (numero) btn Reset</div>
+        <div class="preview">
+            <span class="tip-amount">Tip Amount </span>
+            <span class="person">/ person</span>
+            <div class="dollar-input">
+                <i class="uil uil-dollar-alt img-prevw"></i>
+                <input type="text" class="input-preview" placeholder="5">
+            </div>
+             <span class="total-bill">Total </span> 
+             <span class="person">/ person</span>
+             <div class="dollar-input"> 
+                <i class="uil uil-dollar-alt img-prevw"></i>
+                <input type="text" class="input-preview" placeholder="5">
+             </div>
+             <button class="reset-btn">Reset</button>
+            </div>
       </div>
     </main>
   </body>

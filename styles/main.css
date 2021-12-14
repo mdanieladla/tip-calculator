@@ -97,6 +97,12 @@
     color: var(--dark-grayish-cyan1);
 }
 
+.active{
+    border: 1px solid var(--light-grayish-cyan1);
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
 /*preview part*/
 .preview{
     border-radius: 12px;

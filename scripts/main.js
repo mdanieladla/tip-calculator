@@ -20,7 +20,7 @@ inputNumberPeople.addEventListener('keyup', handleInputBill);
 
 /* ******funcion para que se ponga en el total/persona el total de la cuenta nada mas introducir el valor en el input bill.******* */
 function testBill() {
-  let inputValue = inputBill.value;
+  let inputValue = Number(inputBill.value);
   total.innerHTML = `$ ${inputValue}`;
   validateNPeople();
 }
@@ -30,13 +30,10 @@ inputBill.addEventListener('keyup', testBill);
 /* **************funcion para validar number of people************** */
 const validateNPeople = () => {
   let valueInputPeople = inputNumberPeople.value;
-  if (valueInputPeople == 0) {
+  if (valueInputPeople <= 0) {
     return (errNPeople.innerHTML = "Can't be zero");
-  } else {
-    errNPeople.innerHTML = '';
   }
 };
-
 //funcion para coger el valor del input del numero de personas
 // function handleInputPeople() {
 //   let inputPeopleValue = inputNumberPeople.value;

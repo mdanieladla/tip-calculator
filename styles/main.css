@@ -193,6 +193,7 @@
 
     .tipBtn{
         width: 95px;
+        cursor: pointer;
     }
 
     .input-custom{

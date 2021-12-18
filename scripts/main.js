@@ -42,6 +42,8 @@ const validateNPeople = () => {
 
 // inputNumberPeople.addEventListener('keyup', handleInputPeople);
 
+console.log(btnTip.value);
+
 /* ***********funcion para que al clickar sobre cada boton de la propina le cambie el estilo ************** */
 btnTip.forEach((btn) =>
   btn.addEventListener('click', () => {
@@ -49,10 +51,17 @@ btnTip.forEach((btn) =>
   })
 );
 
+btnTip.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    let getValue = btn.value;
+    console.log(getValue);
+  })
+);
+
 /* **************funcion para coger el valor del input del % tip************** */
 function handleCustomTip() {
   let inputCustom = customTip.value;
-  //   console.log(inputCustom);
+  console.log(inputCustom);
 }
 
 customTip.addEventListener('keyup', handleCustomTip);

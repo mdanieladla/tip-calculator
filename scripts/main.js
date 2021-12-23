@@ -9,61 +9,70 @@ const errNPeople = document.querySelector('.err-message');
 const resetBtn = document.querySelector('.js-reset-btn');
 const tipAmount = document.querySelector('.js-tip-amount');
 
-/* **************funcion para calcular el total por persona************** */
-function handleInputBill() {
-  let inputValue = inputBill.value;
-  let inputPeopleValue = inputNumberPeople.value;
-  let totalF = inputValue / inputPeopleValue;
-  total.innerHTML = '$' + totalF.toFixed(2);
-}
+let bill = 0;
+let tip = 0;
+let people = 1;
 
-inputNumberPeople.addEventListener('keyup', handleInputBill);
+/* **************funcion para coger el valor de bill************** */
+inputBill.addEventListener('input', (e) => {
+  bill = Number(inputBill.value);
+  calc();
+});
 
-//no termina de funcionar :(((((((((((((
-// function handleTips() {
-//   btnTip.forEach((btn) =>
-//     btn.addEventListener('click', () => {
-//       let value = btn.value;
-//       // console.log(value);
-//       let inputValue = inputBill.value;
-//       let inputPeopleValue = inputNumberPeople.value;
-//       let total = (inputValue * value) / 100 / inputPeopleValue;
-//       tipAmount.innerHTML = '$' + total.toFixed(2);
-//     })
-//   );
-// }
-// inputNumberPeople.addEventListener('keyup', handleTips);
-
-/* ******funcion para que se ponga en el total/persona el total de la cuenta nada mas introducir el valor en el input bill.******* */
-function testBill() {
-  let inputValue = Number(inputBill.value);
-  total.innerHTML = `$ ${inputValue}`;
-  validateNPeople();
-}
-
-inputBill.addEventListener('keyup', testBill);
-
-/* ***********funcion para que al clickar sobre cada boton de la propina le cambie el estilo ************** */
-btnTip.forEach((btn) =>
-  btn.addEventListener('click', () => {
+/* ****************** boton porcentaje **************** */
+btnTip.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    tip = btn.value;
+    let target = e.currentTarget;
+    //quitamos la clase active si el usuario escoge nuevo %
+    btnTip.forEach((item) => {
+      if (item !== btn) {
+        item.classList.remove('active');
+      }
+    });
+    //añadimos la clase active si el usuario coge nuevo %
     btn.classList.toggle('active');
-  })
-);
-/* ***********funcion para que al clickar sobre cada boton de la propina coja el valor de cada uno ************** */
-btnTip.forEach((btn) =>
-  btn.addEventListener('click', () => {
-    let getValue = btn.value;
-    console.log(getValue);
-  })
-);
+
+    //para que si está seleccionado un botón no se pueda introducir el % en el input custom
+    if (target.classList.contains('active')) {
+      customTip.disabled = true;
+      customTip.value = '';
+      calc();
+    } else {
+      customTip.disabled = false;
+    }
+  });
+});
+
+/* ****** número de personas. ******* */
+inputNumberPeople.addEventListener('input', (e) => {
+  people = Number(inputNumberPeople.value);
+
+  if (people <= 0) {
+    inputNumberPeople.classList.add('err-message');
+    errNPeople.style.visibility = 'visible';
+  } else {
+    inputNumberPeople.classList.remove('err-message');
+    errNPeople.style.visibility = 'hidden';
+    calc();
+  }
+});
 
 /* **************funcion para coger el valor del input del % tip************** */
-function handleCustomTip() {
-  let inputCustom = customTip.value;
-  console.log(inputCustom);
-}
+customTip.addEventListener('input', () => {
+  tip = Number(customTip.value);
+  calc();
+});
 
-customTip.addEventListener('keyup', handleCustomTip);
+/* *****************funcion para calcular ************************ */
+function calc() {
+  if (bill >= 0 && people >= 1) {
+    let amountTip = (bill * tip) / 100;
+    let totalInsideCalc = amountTip + bill;
+    tipAmount.innerHTML = `$${(amountTip / people).toFixed(2)}`;
+    total.innerHTML = `$${(totalInsideCalc / people).toFixed(2)}`;
+  }
+}
 
 /* **************reset boton************** */
 function handleClickResetBtn() {
